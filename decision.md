@@ -111,3 +111,8 @@ resume-parser/
 - Need to use an LLM.
 
 Any trigger moves the project to Phase 3.
+
+## 10.converting files to next step
+- I want you to move this react project into frontend folder and build a backend folder that contains the express server to handle the request, lets connect to mongoDB.
+ 
+- The application should take resume PDF and a JD for comparison, AI part will be added later
