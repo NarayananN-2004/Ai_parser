@@ -4,6 +4,7 @@ import UploadBox from './components/UploadBox';
 import ResultView from './components/ResultView';
 import { extractText } from './lib/extractText';
 import { parseResume } from './lib/parseResume';
+import { calculateResumeScore } from './lib/scoreResume';
 import { SAMPLE_RESUME_TEXT } from './data/sampleResume';
 import { AlertCircle, Loader2 } from 'lucide-react';
 import './App.css';
@@ -23,10 +24,14 @@ export default function App() {
       // Step 1: Client-side text extraction
       const rawText = await extractText(file);
       
-      setLoadingMessage('Parsing candidate details, skills, & timeline...');
+      setLoadingMessage('Calculating AI parser score & document quality...');
       
       // Step 2: Rule-based parsing
       const result = parseResume(rawText, file.name);
+
+      // Step 3: Compute AI parser score
+      const scoreResult = calculateResumeScore(result);
+      result.scoreResult = scoreResult;
       
       // Smooth micro-delay for realistic UI feedback
       setTimeout(() => {
@@ -43,10 +48,11 @@ export default function App() {
   const handleSampleLoad = () => {
     setError(null);
     setLoading(true);
-    setLoadingMessage('Loading and parsing Alex Morgan sample resume...');
+    setLoadingMessage('Evaluating sample resume score...');
 
     setTimeout(() => {
       const result = parseResume(SAMPLE_RESUME_TEXT, 'alex_morgan_sample_resume.pdf');
+      result.scoreResult = calculateResumeScore(result);
       setParsedData(result);
       setLoading(false);
     }, 450);

@@ -39,10 +39,10 @@ export default function UploadBox({ onFileSelect, onSampleLoad, loading }) {
           <span>Client-Side Document Intelligence</span>
         </div>
         <h1 className="hero-title">
-          Parse Resumes with <span className="text-gradient">Instant Precision</span>
+          Evaluate Resumes with <span className="text-gradient">AI Parser Score</span>
         </h1>
         <p className="hero-subtitle">
-          Extract structured candidate profiles, skills, education, and experience directly in your browser. Zero backend, no tracking, sub-second parsing.
+          Instantly evaluate candidate document strength, keyword density, section completeness, and profile readiness directly in your browser.
         </p>
       </div>
 
@@ -80,10 +80,10 @@ export default function UploadBox({ onFileSelect, onSampleLoad, loading }) {
         </div>
 
         <div className="sample-trigger-row">
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Want to preview without a file?</span>
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>Want to check a score preview?</span>
           <button className="sample-btn" onClick={onSampleLoad} type="button">
             <Zap size={15} />
-            <span>Load Sample Resume</span>
+            <span>Score Sample Resume</span>
           </button>
         </div>
       </div>
@@ -92,22 +92,22 @@ export default function UploadBox({ onFileSelect, onSampleLoad, loading }) {
         <div className="feature-item">
           <div className="feature-icon"><Zap size={20} /></div>
           <div className="feature-text">
-            <h4>Real-Time Extraction</h4>
-            <p>Parses within milliseconds via client-side heuristics and regex dictionary matching.</p>
+            <h4>Instant 0–100 Score</h4>
+            <p>Calculates parser readiness based on industry ATS heuristics &amp; section balance.</p>
           </div>
         </div>
         <div className="feature-item">
           <div className="feature-icon"><Shield size={20} /></div>
           <div className="feature-text">
             <h4>Complete Privacy</h4>
-            <p>Your resume data never leaves your device. No cloud storage, no leaks, 100% safe.</p>
+            <p>Your resume data never leaves your device. No cloud storage, no leaks, 100% private.</p>
           </div>
         </div>
         <div className="feature-item">
           <div className="feature-icon"><FileCheck2 size={20} /></div>
           <div className="feature-text">
-            <h4>Structured JSON Export</h4>
-            <p>Instant 1-click clipboard copy and formatted JSON download for HR pipelines.</p>
+            <h4>Category Breakdown</h4>
+            <p>Detailed analysis across contacts, skills breadth, experience depth, and academics.</p>
           </div>
         </div>
       </div>
