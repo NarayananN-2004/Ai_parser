@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
     mongoConnected: getDBStatus(),
     timestamp: new Date().toISOString(),
   });
-}); 
+});
 
 // Modular Routes
 app.use('/api', compareRoutes);
