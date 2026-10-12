@@ -16,14 +16,14 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Health Check route
-app.get('/api/health', (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     status: 'ok',
     service: 'AI Resume & JD Parser API',
     mongoConnected: getDBStatus(),
     timestamp: new Date().toISOString(),
   });
-});
+}); 
 
 // Modular Routes
 app.use('/api', compareRoutes);
