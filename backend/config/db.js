@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 let isConnected = false;
 
 export async function connectDB() {
-  const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/aiparser';
+  const uri = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/aiparser';
 
   try {
     mongoose.set('strictQuery', false);

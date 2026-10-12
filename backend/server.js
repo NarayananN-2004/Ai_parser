@@ -25,6 +25,25 @@ app.get("/", (req, res) => {
   });
 });
 
+// const mongoose = require('mongoose');
+// const connectDB = require('./config/db');
+
+// app.get('/', async (req, res) => {
+//   let error = null;
+//   try {
+//     await connectDB();
+//   } catch (e) {
+//     error = e.message;
+//   }
+//   res.json({
+//     status: 'ok',
+//     service: 'AI Resume & JD Parser API',
+//     mongoConnected: mongoose.connection.readyState === 1,
+//     mongoError: error,
+//     timestamp: new Date().toISOString(),
+//   });
+// });
+
 // Modular Routes
 app.use('/api', compareRoutes);
 
