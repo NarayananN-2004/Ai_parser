@@ -16,33 +16,33 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Health Check route
-app.get("/", (req, res) => {
-  res.json({
-    status: 'ok',
-    service: 'AI Resume & JD Parser API',
-    mongoConnected: getDBStatus(),
-    timestamp: new Date().toISOString(),
-  });
-});
-
-// const mongoose = require('mongoose');
-// const connectDB = require('./config/db');
-
-// app.get('/', async (req, res) => {
-//   let error = null;
-//   try {
-//     await connectDB();
-//   } catch (e) {
-//     error = e.message;
-//   }
+// app.get("/", (req, res) => {
 //   res.json({
 //     status: 'ok',
 //     service: 'AI Resume & JD Parser API',
-//     mongoConnected: mongoose.connection.readyState === 1,
-//     mongoError: error,
+//     mongoConnected: getDBStatus(),
 //     timestamp: new Date().toISOString(),
 //   });
 // });
+
+const mongoose = require('mongoose');
+const connectDB = require('./config/db');
+
+app.get('/', async (req, res) => {
+  let error = null;
+  try {
+    await connectDB();
+  } catch (e) {
+    error = e.message;
+  }
+  res.json({
+    status: 'ok',
+    service: 'AI Resume & JD Parser API',
+    mongoConnected: mongoose.connection.readyState === 1,
+    mongoError: error,
+    timestamp: new Date().toISOString(),
+  });
+});
 
 // Modular Routes
 app.use('/api', compareRoutes);
